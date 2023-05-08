@@ -60,7 +60,8 @@ class ConfirmarReservaForm(ModelForm):
             'nombre_medico': forms.TextInput(attrs={'class': 'form-control'}),
             'id_esp': forms.TextInput(attrs={'class': 'form-control'}),
             'dia_agendado': forms.DateInput(attrs={'class': 'form-control'}),
-            'hora_agendada': forms.TimeInput(attrs={'class': 'form-control'}),
+            'hora_agendada': forms.TimeInput(format='%H:%M'),
+             input_formats=[settings.TIME_INPUT_FORMATS[0]]
             
         }
 

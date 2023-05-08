@@ -57,6 +57,10 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 
 CSRF_TRUSTED_ORIGINS = ['https://django-server-production-f517.up.railway.app']
 
+TIME_INPUT_FORMATS = [
+    '%H:%M',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
