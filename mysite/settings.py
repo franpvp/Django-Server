@@ -55,6 +55,8 @@ INSTALLED_APPS = [
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
+CSRF_TRUSTED_ORIGINS = ['django-server-production-f517.up.railway.app']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
