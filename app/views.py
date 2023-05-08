@@ -10,6 +10,7 @@ from .models import RegistroUsuario, TipoUsuario, Prevision, Especialidad, Medic
 import requests
 from googletrans import Translator
 from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_protect
 
 
 # Create your views here.
