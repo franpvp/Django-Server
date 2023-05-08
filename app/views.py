@@ -15,9 +15,10 @@ from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 
+@csrf_protect
 def home(request):
     return render(request,'app/home.html')
-
+@csrf_protect
 def registro(request):
     datos = {
         'form': RegistroUserForm()
@@ -68,6 +69,7 @@ def registro(request):
 
     return render(request, 'app/registro.html', datos)
 
+@csrf_protect
 def loginUser(request):
     if request.method == 'POST':
         username_ing = request.POST.get('username')
@@ -90,6 +92,7 @@ def loginUser(request):
     
     return render(request, 'registration/login.html')
 
+@csrf_protect
 def modPerfil(request):
     usuario = request.user.username
     registro = get_object_or_404(RegistroUsuario,nombre_usuario = usuario)
@@ -111,6 +114,7 @@ def modPerfil(request):
 
     return render(request, 'app/mod-perfil.html', {'form': formulario, 'registro': registro})
 
+@csrf_protect
 def reservarHora(request):
     datos = {
         'form': ReservaForm()
@@ -134,6 +138,7 @@ def reservarHora(request):
     }
     return render(request, 'app/reservar-hora.html',context)
 
+@csrf_protect
 def confirmarReserva(request, rut, prevision):
 
     datos = {
@@ -170,6 +175,7 @@ def confirmarReserva(request, rut, prevision):
     
     return render(request, 'app/confirmar-reserva.html', context)
 
+@csrf_protect
 def recContraseña(request):
     if request.method == 'POST':
         formulario = RecuperarContraseñaForm(request.POST)
@@ -192,6 +198,7 @@ def recContraseña(request):
                 messages.error(request,'Las contraseñas no coinciden')
     return render(request, 'app/rec-contraseña.html')
 
+@csrf_protect
 def reclamos(request):
     datos = {
         'form': ReclamoForm()
@@ -215,6 +222,7 @@ def reclamos(request):
 
 # Sección Modelos Api Externa
 # Consulta Medicamentos
+@csrf_protect
 def consultasMed(request):
     context = {}
     if request.method == 'GET' and 'nombre_med' in request.GET:
@@ -263,6 +271,7 @@ def consultasMed(request):
     return render(request, 'app/consultas-medicamentos.html', context)
 
 # Falta arreglar la API
+@csrf_protect
 def consultasCovid19(request):
     context = {}
     if request.method == 'GET' and 'pais' in request.GET:

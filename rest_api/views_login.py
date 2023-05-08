@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from rest_framework.authtoken.models import Token
 
+@csrf_protect
 @api_view(['POST'])
 def login(request):
     data = JSONParser().parse(request)

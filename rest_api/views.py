@@ -11,6 +11,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
+@csrf_protect
 @csrf_exempt
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
@@ -30,6 +31,7 @@ def lista_reg_usuarios(request):
             return Response(serializer.error, status = status.HTTP_400_BAD_REQUEST)
         
 #Lista de Medicos Registrados:
+@csrf_protect
 @csrf_exempt
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
@@ -48,6 +50,7 @@ def lista_reg_medicos(request):
         else:
             return Response(serializer.error, status= status.HTTP_400_BAD_REQUEST)
 
+@csrf_protect
 @csrf_exempt
 @api_view(['GET','PUT','DELETE'])    
 @permission_classes((IsAuthenticated,))
